@@ -8,7 +8,7 @@ end
 
 File.read('./.ruby-version')
 
-gem 'azure-storage'
+gem "aws-sdk-s3", require: false
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
 gem 'file_validators'
