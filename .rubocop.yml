@@ -12,6 +12,9 @@ AllCops:
 Rails:
   Enabled: true
 
+Documentation:
+    Enabled: false
+
 Rails/Output:
   Enabled: false
 
@@ -19,10 +22,18 @@ Style/DateTime:
   Enabled: true
 
 Metrics/LineLength:
-  Max: 120
+  Max: 130
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
     - 'Guardfile'
     - 'vendor/bundle'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'

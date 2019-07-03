@@ -1,0 +1,38 @@
+<div class="card mt-3">
+  <div class="table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Profile pic</th>
+          <th>Name</th>
+          <th>Initial health points</th>
+          <th>Attack Damage</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @characters.each do |character| %>
+          <tr>
+            <td class="align-middle">
+              <%= image_tag character.avatar.variant(resize: "100x100") %>
+            </td>
+            <td class="align-middle">
+              <%= character.name %>
+            </td>
+            <td class="align-middle">
+              <%= character.health_points %>
+              </td>
+            <td class="align-middle">
+              <%= character.attack_damage %>
+            </td>
+            <td class="align-middle">
+              <%= link_to "See", character_path(character)%><br/>
+              <%= link_to "Modify", edit_character_path(character)%><br/>
+              <%= link_to "Destroy", character_path(character), method: :delete, data: {confirm: "Are you sure ?"}%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

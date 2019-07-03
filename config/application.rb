@@ -32,6 +32,6 @@ module BattleArena
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.assets.paths << "#{Rails.root}/app/assets/videos"
+    config.assets.paths << Rails.root.join('app', 'assets', 'videos')
   end
 end

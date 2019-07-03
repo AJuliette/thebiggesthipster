@@ -1,0 +1,32 @@
+<div class="col-xs-1" align="center">
+<%= form_for @character do |f| %>
+  <% if @character.errors.any? %>
+  <div class='alert alert-danger p-2'>
+    <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control"%>
+  </div>
+  <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
+    <%= f.label :health_points %>
+    <%= f.number_field :health_points, class:"form-control"%>
+  </div>
+  <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
+    <%= f.label :attack_damage %>
+    <%= f.number_field :attack_damage, class:"form-control"%>
+  </div>
+  <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

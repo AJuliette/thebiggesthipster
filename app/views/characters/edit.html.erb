@@ -1,0 +1,6 @@
+    <div class="container-fluid p-5">
+  <h2>Modify character <%= @character.name %></h2>
+  <%= image_tag @character.avatar.variant(resize: "200x200") %>
+  <%= render 'form', character: @character %>
+  <%= link_to 'Back', characters_path %>
+</div>

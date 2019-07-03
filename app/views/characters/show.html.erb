@@ -1,0 +1,7 @@
+<div class="container-fluid p-5">
+  <h2><%= @character.name %></h2>
+  <%= image_tag @character.avatar.variant(resize: "200x200") %>
+  <h4>Health points: <%= @character.health_points %></h4>
+  <h4>Attack damage: <%= @character.attack_damage %></h4>
+  <%= link_to 'Back', characters_path %>
+</div>
