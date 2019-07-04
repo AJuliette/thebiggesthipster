@@ -5,7 +5,11 @@
 <% @game.turns.each do |turn| %>
       <%= turn.attacker.name %> said: 
       <%= turn.line %> <br/>
-      <%= turn.attacked.name %> lost <%= turn.attack %> in credibility <br/><br/>
+      <%= turn.attacked.name %> lost <%= turn.attack %> points of credibility <br/><br/>
 <% end %>
 <br/>
-That achieved <%= @loser.name %> who just left.
+That achieved <%= @loser.name %> who just left.<br/>
+
+<%= link_to "New fight", new_game_path, class:"btn btn-outline-dark mt-3 mb-2" %><br/>
+<%= link_to "Back to menu", root_path, class:"btn btn-outline-dark mt-3 mb-4" %>
+

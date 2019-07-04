@@ -1,5 +1,5 @@
 <div class="col-xs-1" align="center">
-<%= form_for @character do |f| %>
+<%= simple_form_for @character do |f| %>
   <% if @character.errors.any? %>
   <div class='alert alert-danger p-2'>
     <ul>
@@ -14,19 +14,19 @@
     <%= f.text_field :name, class:"form-control"%>
   </div>
   <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
-    <%= f.label :health_points %>
+    <%= f.label :credibility %>
     <%= f.number_field :health_points, class:"form-control"%>
   </div>
   <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
-    <%= f.label :attack_damage %>
+    <%= f.label :name_dropping_capacity %>
     <%= f.number_field :attack_damage, class:"form-control"%>
   </div>
   <div class="field col-lg-6 col-sm-12 mt-3 mb-4">
-    <%= f.label :avatar %>
+    <%= f.label :profile_pic %> <br/>
     <%= f.file_field :avatar %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, "Create player", class:"btn btn-outline-dark mt-3" %>
   </div>
 <% end %>
 </div>

@@ -1,5 +1,8 @@
+<%= image_tag "biggest-hipster.png" %>
+
   <p>Have you ever been in a coffee sheep overhearing some conversations between two obvious hipsters constantly name dropping cool things you never heard of ?</p>
   <p>Did someone ever tell you that you were actually one of these and it hurt a bit ?</p>
   <p>Well, in this game, we'll settle who is the biggest hipster of all</p>
 
-  <h1><%= link_to "Start the fight", new_game_path %></h1>
+  <%= link_to "See players", characters_path, class:"btn btn-outline-dark mt-3" %><br/>
+  <%= link_to "Start a fight", new_game_path, class:"btn btn-outline-dark mt-3 mb-4" %>

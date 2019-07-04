@@ -1,6 +1,6 @@
 	<div class="container-fluid p-5">
 
-		<h1 class="h3 mb-3">Characters</h1>
+		<%= image_tag "players.png" %>
 
 		<div class="row">
 			<div class="col-12">
@@ -8,6 +8,8 @@
 			</div>
 		</div>
 
-      <%= link_to "New", new_character_path, class:"btn btn-light mt-3" %>
+      <%= link_to "Create a new player", new_character_path, class:"btn btn-outline-dark mt-3" %><br/>
+      <%= link_to "Back to menu", root_path, class:"btn btn-outline-dark mt-3" %>
+
 
 	</div>

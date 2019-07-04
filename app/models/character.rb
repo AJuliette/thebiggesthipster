@@ -16,13 +16,13 @@ class Character < ApplicationRecord
   validates :name, presence: true, length: { minimum: 8, maximum: 20 }
   validates :health_points, presence: true, numericality: {
     only_integer: true,
-    greater_than_or_equal_to: 80,
-    less_than_or_equal_to: 100
+    greater_than_or_equal_to: 30,
+    less_than_or_equal_to: 40
   }
   validates :attack_damage, presence: true, numericality: {
     only_integer: true,
-    greater_than_or_equal_to: 10,
-    less_than_or_equal_to: 20
+    greater_than_or_equal_to: 5,
+    less_than_or_equal_to: 10
   }
 
   has_one_attached :avatar

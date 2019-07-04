@@ -84,4 +84,5 @@ html, body {
   object-fit: cover;
   top: 0;
   z-index: -2;
+  background-size: cover;
  }

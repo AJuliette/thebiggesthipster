@@ -7,17 +7,17 @@
     </ul>
   </div>
 <% end %>
-<div class="row">
+<div class="row mb-3">
   <div class="col-md-4">
       <%= simple_form_for @game do |f| %>
           <%= f.association :characters, label: "Choose Player 1" %>
   </div>
-  <div class="col-md-4"><%= image_tag "versus.png"%></div>
+  <div class="col-md-4"><div class="mt-5"><%= image_tag "versus.png"%></div></div>
   <div class="col-md-4 select-character">
       <%= f.association :characters, label: "Choose Player 2" %>
   </div>
 </div>
-<div class="mt-2 mb-2">
-  <%= f.submit 'Fight !' %>
+<div class="mt-3 mb-2">
+  <%= f.button :submit, "Fight !", class:"btn btn-outline-dark mt-3" %>
 </div>
 <% end %>

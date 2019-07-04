@@ -1,7 +1,8 @@
 <div class="container-fluid p-5">
   <h2><%= @character.name %></h2>
   <%= image_tag @character.avatar.variant(resize: "200x200") %>
-  <h4>Health points: <%= @character.health_points %></h4>
-  <h4>Attack damage: <%= @character.attack_damage %></h4>
-  <%= link_to 'Back', characters_path %>
+  <h4 class="mt-2">Credibility: <%= @character.health_points %></h4>
+  <h4>Name dropping capacity: <%= @character.attack_damage %></h4>
+  <%= link_to "Modify", edit_character_path(@character), class:"btn btn-outline-dark mt-3" %><br/>
+  <%= link_to 'Back to characters', characters_path, class:"btn btn-outline-dark mt-3" %>
 </div>
