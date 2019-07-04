@@ -2,30 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.home_video {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  object-fit: cover;
-  top: 0;
-  z-index: -2;
- }
-
-.home-video-wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-h1.home {
-  color: white;
-}
-
-p {
-  color: white;
-  background: rgba(0,0,0,0.4);
-}

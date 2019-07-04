@@ -70,7 +70,18 @@ html, body {
 }
 
 .jumbotron {
-  background-image: url("coffee-shop.jpg");
+  background: none;
   background-size: cover;
   text-align:center;
 }
+
+.coffee_background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+ }
