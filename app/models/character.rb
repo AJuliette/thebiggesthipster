@@ -13,6 +13,8 @@
 #
 
 class Character < ApplicationRecord
+  after_save :set_energy
+
   validates :name, presence: true, length: { minimum: 8, maximum: 20 }
   validates :health_points, presence: true, numericality: {
     only_integer: true,
@@ -30,7 +32,26 @@ class Character < ApplicationRecord
                                           message: 'only %{types} are allowed' }, if: -> { avatar.attached? }
   validate :presence_of_avatar
 
+  has_many :fightings
+  has_many :games, through: :fightings
+
+  def attack(player)
+    attack_damage
+  end
+
+  def is_attacked(attack)
+    energy =- attack
+  end
+
+  def alive?
+    energy > 0
+  end
+
   private
+
+  def set_energy
+    energy = health_points
+  end
 
   def presence_of_avatar
     errors.add(:character, 'must have a profile picture') unless avatar.attached?

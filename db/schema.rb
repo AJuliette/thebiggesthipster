@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_121513) do
+ActiveRecord::Schema.define(version: 2019_07_04_081551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,25 @@ ActiveRecord::Schema.define(version: 2019_07_02_121513) do
     t.integer "attack_damage", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "energy"
+  end
+
+  create_table "fightings", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_fightings_on_character_id"
+    t.index ["game_id"], name: "index_fightings_on_game_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "winner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "fightings", "characters"
+  add_foreign_key "fightings", "games"
 end

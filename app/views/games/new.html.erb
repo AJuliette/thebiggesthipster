@@ -1,0 +1,23 @@
+<% if @game.errors.any? %>
+  <div class='alert alert-danger p-2'>
+    <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-4">
+      <%= simple_form_for @game do |f| %>
+          <%= f.association :characters, label: "Choose Player 1" %>
+  </div>
+  <div class="col-md-4"><%= image_tag "versus.png"%></div>
+  <div class="col-md-4 select-character">
+      <%= f.association :characters, label: "Choose Player 2" %>
+  </div>
+</div>
+<div class="mt-2 mb-2">
+  <%= f.submit 'Fight !' %>
+</div>
+<% end %>
