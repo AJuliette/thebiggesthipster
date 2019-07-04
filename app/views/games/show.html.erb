@@ -1,4 +1,4 @@
-<h1><%= @winner.name %> won ! </h1>
+<h1><%= @game.winner.name %> won ! </h1>
 
 <h4>What happened:</h4>
 
@@ -7,8 +7,7 @@
       <%= turn.line %> <br/>
       <%= turn.attacked.name %> lost <%= turn.attack %> points of credibility <br/><br/>
 <% end %>
-<br/>
-That achieved <%= @loser.name %> who just left.<br/>
+<%= @game.loser.name %> has nothing left to say...<br/>
 
 <%= link_to "New fight", new_game_path, class:"btn btn-outline-dark mt-3 mb-2" %><br/>
 <%= link_to "Back to menu", root_path, class:"btn btn-outline-dark mt-3 mb-4" %>

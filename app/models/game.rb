@@ -24,7 +24,6 @@ class Game < ApplicationRecord
     loop do
       turns.create(attacker: @first_player, attacked: @second_player).run
       break if end_of_game
-
       turns.create(attacker: @second_player, attacked: @first_player).run
       break if end_of_game
     end
@@ -38,13 +37,19 @@ class Game < ApplicationRecord
 
   def set_winner
     if @first_player.dead?
-      update(winner: @second_player.name)
       fightings.find_by(character_id: @second_player).update(win: true)
       fightings.find_by(character_id: @first_player).update(win: false)
     else
-      update(winner: @first_player.name)
       fightings.find_by(character_id: @first_player).update(win: true)
       fightings.find_by(character_id: @second_player).update(win: false)
     end
+  end
+
+  def winner
+    turns.last.attacker
+  end
+
+  def loser
+    turns.last.attacked
   end
 end

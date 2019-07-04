@@ -7,7 +7,8 @@
           <th>Name</th>
           <th>Credibility</th>
           <th>Name dropping capacity</th>
-          <th>Action</th>
+          <th>Percentage of won fights</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,9 @@
               </td>
             <td class="align-middle">
               <%= character.attack_damage %>
+            </td>
+            <td class="align-middle">
+              <%= character.percentage_of_wins %>
             </td>
             <td class="align-middle">
               <%= link_to "See", character_path(character)%><br/>

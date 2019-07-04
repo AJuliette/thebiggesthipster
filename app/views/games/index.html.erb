@@ -1,0 +1,39 @@
+<%= image_tag "past-fights.png", class: "mt-3" %>
+
+<div class="card mt-3">
+  <div class="table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Player 1</th>
+          <th>Player 2</th>
+          <th>Winner</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @games.each do |game| %>
+          <tr>
+            <td class="align-middle">
+              <%= image_tag game.characters.first.avatar.variant(resize: "100x100") %> <br/>
+              <%= game.characters.first.name %>
+            </td>
+            <td class="align-middle">
+              <%= image_tag game.characters.last.avatar.variant(resize: "100x100") %> <br/>
+              <%= game.characters.last.name %>
+            </td>
+            <td class="align-middle">
+              <%= game.winner.name %>
+            </td>
+            <td class="align-middle">
+              <%= link_to "See", game_path(game)%><br/>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to "New fight", new_game_path, class:"btn btn-outline-dark mt-3 mb-2" %><br/>
+<%= link_to "Back to menu", root_path, class:"btn btn-outline-dark mt-3 mb-4" %>

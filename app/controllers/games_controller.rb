@@ -10,8 +10,8 @@ class GamesController < ApplicationController
     @characters = Character.all
     @game = Game.new(game_params)
     if @game.save
-      characters_order = @game.randomize_starter
-      @game.fight(characters_order)
+      randomized_characters_order = @game.randomize_starter
+      @game.fight(randomized_characters_order)
       redirect_to @game
     else
       render 'new'
@@ -20,8 +20,10 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @winner = @game.turns.last.attacker
-    @loser = @game.turns.last.attacked
+  end
+
+  def index
+    @games = Game.all
   end
 
   private

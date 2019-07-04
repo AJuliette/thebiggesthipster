@@ -48,6 +48,14 @@ class Character < ApplicationRecord
     health_points <= 0
   end
 
+  def percentage_of_wins
+    if fightings.empty?
+      "NA"
+    else
+      "#{((fightings.where(win: true).size * 100) / fightings.size).to_i}" + "%"
+    end
+  end
+
   private
 
   def presence_of_avatar
