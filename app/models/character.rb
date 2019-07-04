@@ -13,8 +13,6 @@
 #
 
 class Character < ApplicationRecord
-  after_save :set_energy
-
   validates :name, presence: true, length: { minimum: 8, maximum: 20 }
   validates :health_points, presence: true, numericality: {
     only_integer: true,
@@ -35,23 +33,22 @@ class Character < ApplicationRecord
   has_many :fightings
   has_many :games, through: :fightings
 
-  def attack(player)
+  has_many :turns, class_name: 'Turn', foreign_key: 'attacker_id'
+  has_many :turns, class_name: 'Turn', foreign_key: 'attacked_id'
+
+  def attack
     attack_damage
   end
 
   def is_attacked(attack)
-    energy =- attack
+    self.health_points = health_points - attack
   end
 
-  def alive?
-    energy > 0
+  def dead?
+    health_points <= 0
   end
 
   private
-
-  def set_energy
-    energy = health_points
-  end
 
   def presence_of_avatar
     errors.add(:character, 'must have a profile picture') unless avatar.attached?

@@ -11,6 +11,7 @@ File.read('./.ruby-version')
 gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
+gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'file_validators'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'image_processing', '~> 1.2'
@@ -28,7 +29,6 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'faker', '~> 1.8', '>= 1.8.7'
   gem 'pry-byebug', '~> 3.6'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'sandi_meter', '~> 1.2'

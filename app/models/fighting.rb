@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Fighting < ApplicationRecord
   belongs_to :character
   belongs_to :game, inverse_of: :fightings

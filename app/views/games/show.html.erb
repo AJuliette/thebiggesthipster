@@ -1,2 +1,11 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h1><%= @winner.name %> won ! </h1>
+
+<h4>What happened:</h4>
+
+<% @game.turns.each do |turn| %>
+      <%= turn.attacker.name %> said: 
+      <%= turn.line %> <br/>
+      <%= turn.attacked.name %> lost <%= turn.attack %> in credibility <br/><br/>
+<% end %>
+<br/>
+That achieved <%= @loser.name %> who just left.
