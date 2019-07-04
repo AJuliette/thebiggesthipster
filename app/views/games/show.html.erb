@@ -1,4 +1,6 @@
-<h1><%= @game.winner.name %> won ! </h1>
+<%= image_tag @game.winner.avatar.variant(resize: "200x200"), class:"mt-3" %>
+
+<h1 class="mt-2"><%= @game.winner.name %> won ! </h1>
 
 <h4>What happened:</h4>
 

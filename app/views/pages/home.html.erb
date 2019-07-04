@@ -1,11 +1,14 @@
-<%= image_tag "biggest-hipster.png", class:"mt-3" %>
+<div class="container-fluid p-5">
 
-<p>Have you ever been in a coffee shop overhearing some conversations between two obvious hipsters constantly name dropping cool things you never heard of ?</p>
-<p>Did someone ever tell you that you were actually one of these and it hurt a bit ?</p>
-<p>Well, in this game, we'll settle who is the biggest hipster of all</p>
+  <%= image_tag "biggest-hipster.png", class:"mt-3" %>
 
-<div class="container mb-3">
-  <%= link_to "See players", characters_path, class:"btn btn-outline-dark mt-3 mr-3" %>
-  <%= link_to "See past fights", games_path, class:"btn btn-outline-dark mt-3 mr-3" %>
-  <%= link_to "Start a fight", new_game_path, class:"btn btn-outline-dark mt-3" %>
+  <p>Have you ever been in a coffee shop overhearing some conversations between two obvious hipsters constantly name dropping cool things you never heard of ?</p>
+  <p>Did someone ever tell you that you were actually one of these and it hurt a bit ?</p>
+  <p>Well, in this game, we'll settle who is the biggest hipster of all</p>
+
+  <div class="container mb-3">
+    <%= link_to "See players", characters_path, class:"btn btn-outline-dark mt-3 mr-3" %>
+    <%= link_to "See past fights", games_path, class:"btn btn-outline-dark mt-3 mr-3" %>
+    <%= link_to "Start a fight", new_game_path, class:"btn btn-outline-dark mt-3" %>
+  </div>
 </div>
