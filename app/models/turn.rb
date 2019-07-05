@@ -7,6 +7,8 @@ class Turn < ApplicationRecord
   belongs_to :attacker, class_name: 'Character'
   belongs_to :attacked, class_name: 'Character'
 
+  default_scope { order(created_at: :asc) }
+
   def run(weapon)
     update(attacker_health_points: attacker.health_points, attacked_health_points: attacked.health_points)
     attack = attacker.attack(weapon)
