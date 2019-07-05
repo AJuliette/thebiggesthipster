@@ -1,4 +1,4 @@
-# :woman-rowing-boat: Who's the biggest hipster ?
+# :bearded-person: Who's the biggest hipster ?
 
 This is my implementation of the CaptainContrat jobs challenge :tada:
 You can see instructions here: https://github.com/captaincontrat/jobs
