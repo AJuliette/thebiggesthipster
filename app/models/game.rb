@@ -9,8 +9,6 @@ class Game < ApplicationRecord
 
   has_many :turns
 
-  accepts_nested_attributes_for :characters
-
   def fight
     loop do
       turns.create(attacker: player_a, attacked: player_b).run(weapon_a)
