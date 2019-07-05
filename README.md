@@ -7,6 +7,10 @@ You can see instructions here: https://github.com/captaincontrat/jobs
 
 The website is live here: http://whosthebiggesthipster.herokuapp.com
 
+## A bit of history
+
+When I started to learn to code in autumn 2018 I rapidly discovered the gem Faker that I really loved (and made me terribly laughed). This website is kind of a tribute to the Faker::Hipster :book:
+
 ## Usage
 
 You can download the repo and then do:
