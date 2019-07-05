@@ -9,6 +9,8 @@ class Game < ApplicationRecord
 
   has_many :turns
 
+  validate :cannot_fight_themself
+
   def fight
     loop do
       turns.create(attacker: player_a, attacked: player_b).run(weapon_a)
@@ -38,5 +40,13 @@ class Game < ApplicationRecord
 
   def loser
     turns.last.attacked
+  end
+
+  private
+
+  def cannot_fight_themself
+    if player_a_id == player_b_id
+      errors.add(:players, "can't fight themself")
+    end
   end
 end
