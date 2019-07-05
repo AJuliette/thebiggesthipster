@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
-  has_many :fightings
-  has_many :characters, through: :fightings
-
   belongs_to :player_a, class_name: 'Character'
   belongs_to :player_b, class_name: 'Character'
 
