@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddReferencesOfWeaponsToGames < ActiveRecord::Migration[5.2]
   def change
     add_reference :games, :weapon_a, index: true

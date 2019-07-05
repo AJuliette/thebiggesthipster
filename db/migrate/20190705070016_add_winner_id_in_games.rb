@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddWinnerIdInGames < ActiveRecord::Migration[5.2]
   def change
     remove_column :games, :winner, :string

@@ -12,8 +12,6 @@ class GamesController < ApplicationController
     @weapons = Weapon.all
     @game = Game.new(game_params)
     if @game.save
-      #randomized_characters_order = @game.randomize_starter
-      #@game.fight(randomized_characters_order)
       @game.fight
       redirect_to @game
     else

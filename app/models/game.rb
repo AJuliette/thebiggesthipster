@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   belongs_to :weapon_a, class_name: 'Weapon'
   belongs_to :weapon_b, class_name: 'Weapon'
 
-  has_many :turns
+  has_many :turns, dependent: :destroy
 
   validate :cannot_fight_themself
 
@@ -15,6 +15,7 @@ class Game < ApplicationRecord
     loop do
       turns.create(attacker: player_a, attacked: player_b).run(weapon_a)
       break if end_of_game
+
       turns.create(attacker: player_b, attacked: player_a).run(weapon_b)
       break if end_of_game
     end
@@ -28,9 +29,9 @@ class Game < ApplicationRecord
 
   def set_winner
     if player_a.dead?
-      self.update(winner_id: player_b.id)
+      update(winner_id: player_b.id)
     else
-      self.update(winner_id: player_a.id)
+      update(winner_id: player_a.id)
     end
   end
 
@@ -45,8 +46,6 @@ class Game < ApplicationRecord
   private
 
   def cannot_fight_themself
-    if player_a_id == player_b_id
-      errors.add(:players, "can't fight themself")
-    end
+    errors.add(:players, "can't fight themself") if player_a_id == player_b_id
   end
 end
