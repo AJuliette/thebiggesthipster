@@ -13,7 +13,7 @@
 #
 
 class Character < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 8, maximum: 20 }
+  validates :name, presence: true, length: { minimum: 4, maximum: 20 }
   validates :health_points, presence: true, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 30,

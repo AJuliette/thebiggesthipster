@@ -4,6 +4,14 @@ html, body {
   font-family: sans-serif;
 }
 
+a {
+  color: grey;
+}
+
+a:hover {
+  color: black;
+}
+
 .jumbotron.vertical-center {
   margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
 }

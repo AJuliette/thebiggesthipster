@@ -8,11 +8,13 @@
 <%= @game.player_b.name %> had the weapon: <%= @game.weapon_b.name %><br/><br/>
 
 <% @game.turns.each do |turn| %>
-      <%= turn.attacker.name %> said: 
-      <%= turn.line %> <br/>
-      <%= turn.attacked.name %> lost <%= turn.attack %> points of credibility <br/><br/>
-<% end %>
-<%= @game.loser.name %> has nothing left to say...<br/>
+  <b>It's <%= turn.attacker.name %>'s turn <br/>
+   <%= turn.attacker.name %> has <%= turn.attacker_health_points %> of credibility. <%= turn.attacked.name %> has <%= turn.attacked_health_points %> of credibility.</b> <br/>
+  <%= turn.attacker.name %> said: 
+  <%= turn.line %> <br/>
+  <i><%= turn.attacked.name %> lost <%= turn.attack %> points of credibility</i> <br/><br/>
+  <% end %>
+<b><%= @game.loser.name %> has nothing left to say...</b><br/>
 
 <%= link_to "New fight", new_game_path, class:"btn btn-outline-dark mt-3 mb-2" %><br/>
 <%= link_to "Back to menu", root_path, class:"btn btn-outline-dark mt-3 mb-4" %>

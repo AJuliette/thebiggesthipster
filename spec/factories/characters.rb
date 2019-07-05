@@ -15,8 +15,8 @@
 FactoryBot.define do
   factory :character do
     name { 'MyString' }
-    health_points { 80 }
-    attack_damage { 15 }
+    health_points { 35 }
+    attack_damage { 7 }
     avatar { Rack::Test::UploadedFile.new('../tmp/captaincontrat.jpg', 'image/jpg') }
   end
 end
