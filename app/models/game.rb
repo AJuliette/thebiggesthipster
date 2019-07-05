@@ -14,8 +14,6 @@ class Game < ApplicationRecord
 
   accepts_nested_attributes_for :characters
 
-  #validates :characters, length: { minimum: 2, maximum: 2 }
-
   def fight
     loop do
       turns.create(attacker: player_a, attacked: player_b).run(weapon_a)

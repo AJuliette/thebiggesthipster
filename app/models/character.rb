@@ -30,9 +30,6 @@ class Character < ApplicationRecord
                                           message: 'only %{types} are allowed' }, if: -> { avatar.attached? }
   validate :presence_of_avatar
 
-  #has_many :fightings
-  #has_many :games, through: :fightings
-
   has_many :turns, class_name: 'Turn', foreign_key: 'attacker_id'
   has_many :turns, class_name: 'Turn', foreign_key: 'attacked_id'
 

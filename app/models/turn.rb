@@ -13,6 +13,3 @@ class Turn < ApplicationRecord
     update(line: Faker::Hipster.sentence(attack), attack: attack)
   end
 end
-
-# gamers = Game.last.randomize_starter
-# Game.last.fight(gamers)
