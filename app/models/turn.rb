@@ -7,12 +7,9 @@ class Turn < ApplicationRecord
   belongs_to :attacker, class_name: 'Character'
   belongs_to :attacked, class_name: 'Character'
 
-  def run
-    attack = attacker.attack
+  def run(weapon)
+    attack = attacker.attack(weapon)
     attacked.health_points = attacked.is_attacked(attack)
     update(line: Faker::Hipster.sentence(attack), attack: attack)
   end
 end
-
-# gamers = Game.last.randomize_starter
-# Game.last.fight(gamers)

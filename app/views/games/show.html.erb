@@ -4,6 +4,9 @@
 
 <h4>What happened:</h4>
 
+<%= @game.player_a.name %> had the weapon: <%= @game.weapon_a.name %><br/>
+<%= @game.player_b.name %> had the weapon: <%= @game.weapon_b.name %><br/><br/>
+
 <% @game.turns.each do |turn| %>
       <%= turn.attacker.name %> said: 
       <%= turn.line %> <br/>
