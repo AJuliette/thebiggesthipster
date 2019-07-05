@@ -1,24 +1,33 @@
-# README
+# :woman-rowing-boat: Who's the biggest hipster ?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my implementation of the CaptainContrat jobs challenge :tada:
+You can see instructions here: https://github.com/captaincontrat/jobs
 
-Things you may want to cover:
+## Version in production
 
-* Ruby version
+You can see the website live here: http://whosthebiggesthipster.herokuapp.com
 
-* System dependencies
+## Usage
 
-* Configuration
+You can download the repo and then do:
 
-* Database creation
+```
+bundle install
+```
 
-* Database initialization
+And check some tests with
 
-* How to run the test suite
+```
+rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## What I've done
 
-* Deployment instructions
+I completed the four levels of the Captain Challenge.
+I left the branch `fightings` because for level 4 I had to re-arrange my tables and joints, I made quite a turn and wanted to let a branch open just in case...
+Basically before level 4 games were related to characters with a has_many through fightings relationship.
+I eventually decided to add directly the foreign_keys to games for both players and their weapons.
 
-* ...
+Looking forward to discussing it with you !
+
+Have a nice review :eyes:
