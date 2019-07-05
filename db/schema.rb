@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_143446) do
+ActiveRecord::Schema.define(version: 2019_07_05_080759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,9 +56,17 @@ ActiveRecord::Schema.define(version: 2019_07_04_143446) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "winner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "player_a_id"
+    t.bigint "player_b_id"
+    t.bigint "weapon_a_id"
+    t.bigint "weapon_b_id"
+    t.bigint "winner_id"
+    t.index ["player_a_id"], name: "index_games_on_player_a_id"
+    t.index ["player_b_id"], name: "index_games_on_player_b_id"
+    t.index ["weapon_a_id"], name: "index_games_on_weapon_a_id"
+    t.index ["weapon_b_id"], name: "index_games_on_weapon_b_id"
   end
 
   create_table "turns", force: :cascade do |t|
@@ -74,9 +82,21 @@ ActiveRecord::Schema.define(version: 2019_07_04_143446) do
     t.index ["game_id"], name: "index_turns_on_game_id"
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "damage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_url"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "fightings", "characters"
   add_foreign_key "fightings", "games"
+  add_foreign_key "games", "characters", column: "player_a_id"
+  add_foreign_key "games", "characters", column: "player_b_id"
+  add_foreign_key "games", "weapons", column: "weapon_a_id"
+  add_foreign_key "games", "weapons", column: "weapon_b_id"
   add_foreign_key "turns", "characters", column: "attacked_id"
   add_foreign_key "turns", "characters", column: "attacker_id"
   add_foreign_key "turns", "games"

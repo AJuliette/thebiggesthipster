@@ -4,27 +4,23 @@ class Game < ApplicationRecord
   has_many :fightings
   has_many :characters, through: :fightings
 
+  belongs_to :player_a, class_name: 'Character'
+  belongs_to :player_b, class_name: 'Character'
+
+  belongs_to :weapon_a, class_name: 'Weapon'
+  belongs_to :weapon_b, class_name: 'Weapon'
+
   has_many :turns
 
   accepts_nested_attributes_for :characters
 
-  validates :characters, length: { minimum: 2, maximum: 2 }
+  #validates :characters, length: { minimum: 2, maximum: 2 }
 
-  def randomize_starter
-    first_player = []
-    first_player << characters.sample
-    second_player = (characters - first_player)
-    { first_player: first_player, second_player: second_player }
-  end
-
-  def fight(players)
-    @first_player = players[:first_player].pop
-    @second_player = players[:second_player].pop
-
+  def fight
     loop do
-      turns.create(attacker: @first_player, attacked: @second_player).run
+      turns.create(attacker: player_a, attacked: player_b).run(weapon_a)
       break if end_of_game
-      turns.create(attacker: @second_player, attacked: @first_player).run
+      turns.create(attacker: player_b, attacked: player_a).run(weapon_b)
       break if end_of_game
     end
 
@@ -32,16 +28,14 @@ class Game < ApplicationRecord
   end
 
   def end_of_game
-    @first_player.dead? || @second_player.dead?
+    player_a.dead? || player_b.dead?
   end
 
   def set_winner
-    if @first_player.dead?
-      fightings.find_by(character_id: @second_player).update(win: true)
-      fightings.find_by(character_id: @first_player).update(win: false)
+    if player_a.dead?
+      self.update(winner_id: player_b.id)
     else
-      fightings.find_by(character_id: @first_player).update(win: true)
-      fightings.find_by(character_id: @second_player).update(win: false)
+      self.update(winner_id: player_a.id)
     end
   end
 

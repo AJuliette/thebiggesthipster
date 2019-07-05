@@ -30,14 +30,17 @@ class Character < ApplicationRecord
                                           message: 'only %{types} are allowed' }, if: -> { avatar.attached? }
   validate :presence_of_avatar
 
-  has_many :fightings
-  has_many :games, through: :fightings
+  #has_many :fightings
+  #has_many :games, through: :fightings
 
   has_many :turns, class_name: 'Turn', foreign_key: 'attacker_id'
   has_many :turns, class_name: 'Turn', foreign_key: 'attacked_id'
 
-  def attack
-    attack_damage
+  has_many :games, class_name: 'Game', foreign_key: 'player_a_id', dependent: :destroy
+  has_many :games, class_name: 'Game', foreign_key: 'player_b_id', dependent: :destroy
+
+  def attack(weapon)
+    attack_damage + rand(1..weapon.damage)
   end
 
   def is_attacked(attack)
@@ -49,11 +52,15 @@ class Character < ApplicationRecord
   end
 
   def percentage_of_wins
-    if fightings.empty?
+    if games.empty?
       "NA"
     else
-      "#{((fightings.where(win: true).size * 100) / fightings.size).to_i}" + "%"
+      "#{((Game.where(winner_id: id).size * 100) / games.size).to_i}" + "%"
     end
+  end
+
+  def games
+    Game.where(player_a_id: id) + Game.where(player_b_id: id)
   end
 
   private
