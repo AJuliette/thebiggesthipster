@@ -5,7 +5,7 @@ class WeaponsController < ApplicationController
     @weapons = Weapon.all
     respond_to do |format|
       format.html
-      format.js {render layout: false}
+      format.js { render layout: false }
     end
   end
 end

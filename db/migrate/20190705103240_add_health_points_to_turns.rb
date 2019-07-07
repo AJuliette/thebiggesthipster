@@ -2,7 +2,9 @@
 
 class AddHealthPointsToTurns < ActiveRecord::Migration[5.2]
   def change
-    add_column :turns, :attacker_health_points, :integer
-    add_column :turns, :attacked_health_points, :integer
+    change_table :turns, bulk: true do |t|
+      t.integer :attacker_health_points
+      t.integer :attacked_health_points
+    end
   end
 end

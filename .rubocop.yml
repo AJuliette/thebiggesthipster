@@ -23,6 +23,8 @@ Style/DateTime:
 
 Metrics/LineLength:
   Max: 130
+  Exclude:
+    - 'initializers/simple_form.rb'
 
 Metrics/BlockLength:
   Exclude:

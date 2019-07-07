@@ -1,6 +1,23 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: games
+#
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  player_a_id :bigint
+#  player_b_id :bigint
+#  weapon_a_id :bigint
+#  weapon_b_id :bigint
+#  winner_id   :bigint
+#
+
+
 class Game < ApplicationRecord
+  validate :cannot_fight_themself
+
   belongs_to :player_a, class_name: 'Character'
   belongs_to :player_b, class_name: 'Character'
 
@@ -8,8 +25,6 @@ class Game < ApplicationRecord
   belongs_to :weapon_b, class_name: 'Weapon'
 
   has_many :turns, dependent: :destroy
-
-  validate :cannot_fight_themself
 
   def fight
     loop do

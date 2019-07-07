@@ -25,10 +25,11 @@ class Character < ApplicationRecord
     less_than_or_equal_to: 10
   }
 
-  has_one_attached :avatar
   validates :avatar, file_content_type: { allow: ['image/jpeg', 'image/gif', 'image/png', 'image/jpg'],
-                                          message: 'only %{types} are allowed' }, if: -> { avatar.attached? }
+  message: 'only %{types} are allowed' }, if: -> { avatar.attached? }
   validate :presence_of_avatar
+
+  has_one_attached :avatar
 
   has_many :turns, class_name: 'Turn', foreign_key: 'attacker_id', dependent: :destroy
   has_many :turns, class_name: 'Turn', foreign_key: 'attacked_id', dependent: :destroy
