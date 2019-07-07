@@ -1,3 +1,4 @@
+<%= image_tag "new-fight.png", class:"img-fluid mt-3" %>
 <% if @game.errors.any? %>
   <div class='alert alert-danger p-2'>
     <ul>
@@ -35,7 +36,8 @@
       </div>
   </div>
 </div>
-<%= link_to "See weapons", weapons_path, class:"btn btn-outline-dark mt-3 mb-2" %><br/>
+<%= link_to "See weapons", weapons_path, class:"btn btn-outline-dark mt-3 mb-2", id:"weapons_link", remote: true %><br/>
+<div id="weapons"></div>
 <div class="mb-2">
   <%= f.submit "Fight !", class:"btn btn-outline-dark mt-3 mb-3" %>
 </div>

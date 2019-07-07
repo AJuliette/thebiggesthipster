@@ -1,0 +1,29 @@
+<%= image_tag "weapons-small.png", class:"img-fluid mt-3" %>
+<div class="card mt-3">
+  <div class="table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Weapon</th>
+          <th>Name</th>
+          <th>Damage up to</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @weapons.each do |weapon| %>
+          <tr>
+            <td class="align-middle">
+              <img src="<%=weapon.image_url%>", width='200' height='200' > <br/>
+            </td>
+            <td class="align-middle">
+              <%= weapon.name %>
+            </td>
+            <td class="align-middle">
+              <%= weapon.damage %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

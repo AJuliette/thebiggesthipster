@@ -1,0 +1,2 @@
+$("#weapons").html("<%= escape_javascript(render partial: 'weapons/index', locals: { weapons: @weapons } ) %>");
+$('#weapons_link').remove();
