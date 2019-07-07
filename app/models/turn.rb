@@ -12,7 +12,7 @@ class Turn < ApplicationRecord
   def run(weapon)
     update(attacker_health_points: attacker.health_points, attacked_health_points: attacked.health_points)
     attack = attacker.attack(weapon)
-    attacked.health_points = attacked.is_attacked(attack)
+    attacked.is_attacked(attack)
     update(line: Faker::Hipster.sentence(attack), attack: attack)
   end
 end
